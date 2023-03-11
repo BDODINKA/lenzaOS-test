@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    .time{
+        font-family: 'Lato',sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 20px;
+        text-align: right;
+        color: #605E5C;
+        //order: 2;
+    }
+    .check{
+        background: url("../../assets/check.webp") no-repeat;
+        width: 16px;
+        height: 10px;
+    }
+}

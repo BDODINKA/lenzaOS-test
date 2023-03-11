@@ -1,0 +1,60 @@
+.wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  &.message_main{
+    justify-content: flex-end;
+  }
+.items {
+  background: #F3F3F3;
+  max-width: 50%;
+  border-radius: 4px;
+  column-gap: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 8px;
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-family: 'Lato', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 20px;
+      color: #201F1E;
+    }
+
+    .message {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+
+
+      .text {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        color: #201F1E;
+      }
+
+      .time {
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 9px;
+      }
+    }
+
+
+  }
+}.message_main {
+    background: rgba(64, 126, 201, 0.16);
+    align-items: flex-end;
+ }
+}
+
