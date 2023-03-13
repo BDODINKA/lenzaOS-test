@@ -35,8 +35,9 @@ export const chatReducer = (
             return {...state, chat_id: action.chatId}
         }
         case "APP/SET-MY-MESSAGE": {
+            const oldMessage = state.messages.map((el)=>el.is_new ? {...el,is_new:false} : el)
             return {
-                ...state, messages: [...state.messages,{message:action.myMessage,user:{id:'',you:true,surname:'',name:'',avatar:""},id:'',created_at:Number(new Date()),is_new:true}]
+                ...state,messages: [...oldMessage,{message:action.myMessage,user:{id:'',you:true,surname:'',name:'',avatar:""},id:'',created_at:Number(new Date()),is_new:true}]
             }
 
         }

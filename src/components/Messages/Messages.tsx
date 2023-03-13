@@ -14,7 +14,7 @@ export const Messages: FC = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        dispatch(MessageTC())
+            dispatch(MessageTC())
     }, [chat_id,dispatch])
 
     if (!messages) return null
@@ -22,6 +22,7 @@ export const Messages: FC = () => {
     const date = (data: number) => {
         return `${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}` === `${new Date(data).getDate()}.${new Date(data).getMonth()}.${new Date(data).getFullYear()}`
     }
+
     return (
         <div className={style.wrapper}>
             {messages.map((el) =>
