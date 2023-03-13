@@ -11,6 +11,8 @@ import {SystemMessage} from "../SystemMessage/SystemMessage";
 export const Messages: FC = () => {
     const messages = useAppSelector((state: RootStateType) => state.chat.messages)
     const chat_id = useAppSelector((state: RootStateType) => state.chat.chat_id)
+    const userId = useAppSelector((state: RootStateType) => state.chat.userID)
+
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -22,12 +24,12 @@ export const Messages: FC = () => {
     const date = (data: number) => {
         return `${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}` === `${new Date(data).getDate()}.${new Date(data).getMonth()}.${new Date(data).getFullYear()}`
     }
-
+    console.log(messages)
     return (
         <div className={style.wrapper}>
             {messages.map((el) =>
                 <div key={el.id} className={style.content}>
-                    {el.is_new && el.id !== el.user.id && <NewMessage/>}
+                    {el.is_new && userId !== el.user.id && <NewMessage/>}
                     {date(el.created_at) && <SystemMessage data={el.created_at}/>}
                     <Message My={el.user.you} Main={el.user.you} el={el}/>
                 </div>

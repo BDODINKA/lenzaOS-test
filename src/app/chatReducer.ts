@@ -4,6 +4,7 @@ import {getChatList, getMessage} from "../api/chat";
 import {AxiosError} from "axios";
 import {setAppErrorAC, setAppStatusAC} from "./appReducer";
 import {IMessage} from "../interface/message";
+import {v1} from "uuid";
 
 export type ChatStateType = typeof appState
 
@@ -11,6 +12,7 @@ const appState = {
     chats: [] as ChatItems[],
     messages: [] as IMessage[],
     chat_id: '',
+    userID:"c104bb72-34b5-48ba-9ad8-8307c405587d"
 }
 
 export type ChatActionsType =
@@ -37,7 +39,7 @@ export const chatReducer = (
         case "APP/SET-MY-MESSAGE": {
             const oldMessage = state.messages.map((el)=>el.is_new ? {...el,is_new:false} : el)
             return {
-                ...state,messages: [...oldMessage,{message:action.myMessage,user:{id:'',you:true,surname:'',name:'',avatar:""},id:'',created_at:Number(new Date()),is_new:true}]
+                ...state,messages: [...oldMessage,{message:action.myMessage,user:{id:state.userID,you:true,surname:'',name:'',avatar:""},id:v1(),created_at:Number(new Date()),is_new:true}]
             }
 
         }
