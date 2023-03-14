@@ -41,7 +41,6 @@ export const chatReducer = (
             return {
                 ...state,messages: [...oldMessage,{message:action.myMessage,user:{id:state.userID,you:true,surname:'',name:'',avatar:""},id:v1(),created_at:Number(new Date()),is_new:true}]
             }
-
         }
         default:
             return state

@@ -15,6 +15,7 @@ export const ChatList: FC = () => {
 
     const chat = useAppSelector((state: RootStateType) => state.chat.chats)
 
+
     const styleItem = stateItem === 2 ? `${style.item} ${style.item_selected}` : style.item
 
     const dispatch = useAppDispatch()
